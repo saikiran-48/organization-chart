@@ -1,0 +1,27 @@
+/**
+ * TeamBadge Component Styles
+ */
+
+.team-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  background-color: color-mix(in srgb, var(--team-color) 15%, transparent);
+  color: var(--team-color);
+  border: 2px solid var(--team-color);
+  width: 6rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.team-badge--sm {
+  font-size: var(--font-size-xs);
+  padding: 2px var(--space-2);
+}
+
+.team-badge--md {
+  font-size: var(--font-size-sm);
+}
