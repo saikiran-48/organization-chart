@@ -3,7 +3,7 @@ import { SearchBox } from '../components/SidebarContainer/SearchBox/SearchBox';
 import { TeamFilter } from '../components/SidebarContainer/TeamFilter/TeamFilter';
 import { useEmployees } from '../hooks/useEmployees';
 import type { Employee } from '../types/employeeTypes';
-import './PageStyles.css';
+import './pageStyles.css';
 import { useMemo } from 'react';
 
 export function EmployeeListPage() {

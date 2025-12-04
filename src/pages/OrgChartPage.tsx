@@ -1,6 +1,6 @@
 import { OrgChart } from '../components/OrgChart/OrgChart';
 import { useEmployees } from '../hooks/useEmployees';
-import './PageStyles.css';
+import './pageStyles.css';
 
 export function OrgChartPage() {
     const {
