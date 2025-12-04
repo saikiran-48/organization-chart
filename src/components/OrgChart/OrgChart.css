@@ -20,7 +20,7 @@
   background: white;
   border-bottom: 1px solid var(--color-gray-200);
   position: sticky;
-  top: 0;
+  top: -12px;
   z-index: 10;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
