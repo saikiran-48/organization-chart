@@ -12,16 +12,16 @@ Built with React 19, TypeScript, and modern web technologies.
 
 🔗 **Live Demo:** [https://saikiran-48.github.io/organization-chart/](https://saikiran-48.github.io/organization-chart/)
 
-📹 **Video Walkthrough:** [Watch Demo](YOUR_VIDEO_LINK_HERE)
+📹 **Video Walkthrough:** [Watch Demo](https://www.loom.com/share/9654827831c7486aa74074fee01c78a1)
 
 ## Features
 
 ### Employee Directory (Left Panel)
 
-- **Complete Employee List** — View all team members with their name, designation, and team
-- **Real-time Search** — Instantly filter employees by name, email, or role
-- **Team Filtering** — Filter view by specific departments (Engineering, Product, Sales, etc.)
-- **Quick Actions** — Copy email addresses to clipboard with one click
+1. **Complete Employee List** — View all team members with their name, designation, and team
+2. **Real-time Search** — Instantly filter employees by name, email, or role
+3. **Team Filtering** — Filter view by specific departments (Engineering, Product, Sales, etc.)
+4. **Quick Actions** — Copy email addresses to clipboard with one click
 
 <p align="center">
   <img src="./docs/assets/employee-list.png" alt="Employee Directory" width="80%">
@@ -29,10 +29,10 @@ Built with React 19, TypeScript, and modern web technologies.
 
 ### Organization Structure (Right Panel)
 
-- **Hierarchical Visualization** — Tree-based chart showing complete reporting structure
-- **Team-aware Display** — Color-coded badges identify each employee's department
-- **Subordinate Count** — Visual indicators show team sizes at a glance
-- **Filtered View** — When filtering by team, the chart updates to show only relevant employees
+1. **Hierarchical Visualization** — Tree-based chart showing complete reporting structure
+2. **Team-aware Display** — Color-coded badges identify each employee's department
+3. **Subordinate Count** — Visual indicators show team sizes at a glance
+4. **Filtered View** — When filtering by team, the chart updates to show only relevant employees
 
 <p align="center">
   <img src="./docs/assets/org-structure.png" alt="Organization Structure" width="80%">
@@ -40,10 +40,10 @@ Built with React 19, TypeScript, and modern web technologies.
 
 ### Drag & Drop Reassignment
 
-- **Intuitive Interactions** — Drag any employee card and drop onto a new manager
-- **Visual Feedback** — Clear drop zones and drag overlays guide the interaction
-- **Cycle Prevention** — Smart validation prevents invalid hierarchies (e.g., reporting to your own subordinate)
-- **Persistent Changes** — Manager updates are saved via API calls
+1. **Intuitive Interactions** — Drag any employee card and drop onto a new manager
+2. **Visual Feedback** — Clear drop zones and drag overlays guide the interaction
+3. **Cycle Prevention** — Smart validation prevents invalid hierarchies (e.g., reporting to your own subordinate)
+4. **Persistent Changes** — Manager updates are saved via API calls
 
 ## Tech Stack
 
@@ -62,8 +62,8 @@ Built with React 19, TypeScript, and modern web technologies.
 
 ### Prerequisites
 
-- Node.js 18 or higher
-- npm or yarn
+1. Node.js 18 or higher
+2. npm or yarn
 
 ### Installation
 
@@ -182,25 +182,25 @@ This approach efficiently handles organizations of any size.
 
 Before allowing a manager reassignment, the system validates:
 
-- An employee cannot be their own manager
-- An employee cannot report to someone in their own subordinate chain
-- Validation occurs both client-side (immediate feedback) and server-side (data integrity)
+1. An employee cannot be their own manager
+2. An employee cannot report to someone in their own subordinate chain
+3. Validation occurs both client-side (immediate feedback) and server-side (data integrity)
 
 ### Drag & Drop Implementation
 
 Built with `@dnd-kit/core` for accessible, performant interactions:
 
-- Supports both pointer and keyboard input
-- Visual drag overlay provides clear feedback
-- Drop zones highlight valid targets
-- Smooth animations on state changes
+1. Supports both pointer and keyboard input
+2. Visual drag overlay provides clear feedback
+3. Drop zones highlight valid targets
+4. Smooth animations on state changes
 
 ### Styling Approach
 
-- Component-scoped CSS files (no global style conflicts)
-- BEM naming convention for clarity
-- CSS custom properties for consistent theming
-- Responsive considerations for various screen sizes
+1. Component-scoped CSS files (no global style conflicts)
+2. BEM naming convention for clarity
+3. CSS custom properties for consistent theming
+4. Responsive considerations for various screen sizes
 
 ## Testing
 
@@ -221,10 +221,10 @@ npm run test -- --watch
 
 Tested and working in:
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+1. Chrome (latest)
+2. Firefox (latest)
+3. Safari (latest)
+4. Edge (latest)
 
 ---
 
