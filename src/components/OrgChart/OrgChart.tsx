@@ -63,8 +63,9 @@ export function OrgChart({
 
       if (!over) return;
 
-      const draggedId = active.id as string;
-      const dropTargetId = (over.id as string).replace('drop-', '');
+      const draggedId = String(active.id);
+      const dropIdRaw = String(over.id);
+      const dropTargetId = dropIdRaw.startsWith('drop-') ? dropIdRaw.slice(5) : dropIdRaw;
 
       if (draggedId === dropTargetId) return;
 

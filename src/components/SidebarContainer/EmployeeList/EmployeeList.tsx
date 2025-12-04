@@ -24,6 +24,8 @@ export function EmployeeList({ employees }: EmployeeListProps) {
     return (
       <div className="employee-list__empty">
         <svg
+          role="img"
+          aria-hidden="true"
           width="48"
           height="48"
           viewBox="0 0 24 24"

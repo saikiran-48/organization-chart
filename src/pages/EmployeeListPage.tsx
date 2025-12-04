@@ -2,6 +2,7 @@ import { EmployeeList } from '../components/SidebarContainer/EmployeeList/Employ
 import { SearchBox } from '../components/SidebarContainer/SearchBox/SearchBox';
 import { TeamFilter } from '../components/SidebarContainer/TeamFilter/TeamFilter';
 import { useEmployees } from '../hooks/useEmployees';
+import type { Employee } from '../types/employeeTypes';
 import './PageStyles.css';
 import { useMemo } from 'react';
 
@@ -17,11 +18,11 @@ export function EmployeeListPage() {
   } = useEmployees();
 
   const filteredEmployees = useMemo(() => {
-    return employees.filter((emp:any) => {
+    return employees.filter((emp: Employee) => {
       const matchesSearch =
         emp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        emp.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        emp.role?.toLowerCase().includes(searchQuery.toLowerCase());
+        (emp.email?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+        emp.designation.toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchesTeam = !selectedTeam || emp.team === selectedTeam;
 
