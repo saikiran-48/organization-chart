@@ -1,55 +1,76 @@
-# 🏢 Organization Chart
+# Organization Chart
 
-A modern, interactive organization chart application built with React and TypeScript. Visualize your company's hierarchy, manage reporting structures, and explore team members with an intuitive drag-and-drop interface.
+An interactive organization chart application that allows users to visualize company hierarchy, manage reporting structures, and reassign employees through an intuitive drag-and-drop interface.
 
-![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript)
-![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite)
+Built with React 19, TypeScript, and modern web technologies.
 
-## ✨ Features
+<p align="center">
+  <img src="./docs/assets/org-chart-demo.png" alt="Organization Chart View" width="100%">
+</p>
 
-**Interactive Org Chart**
-- Hierarchical tree visualization of your organization
-- Drag-and-drop to reassign reporting relationships
-- Visual connector lines between employees and managers
-- Subordinate count badges showing team sizes
+## Demo
 
-**Employee Directory**
-- Searchable list of all employees
-- Filter by team/department
-- Quick copy-to-clipboard for email addresses
-- Avatar and team badge display
+🔗 **Live Demo:** [https://saikiran-48.github.io/organization-chart/](https://saikiran-48.github.io/organization-chart/)
 
-**Smart Hierarchy Management**
-- Cycle detection prevents invalid reporting structures
-- Server-side validation for manager assignments
-- Graceful error handling with user feedback
+📹 **Video Walkthrough:** [Watch Demo](YOUR_VIDEO_LINK_HERE)
 
-## 🛠️ Tech Stack
+## Features
 
-| Category | Technology |
-|----------|------------|
-| Framework | React 19 |
-| Language | TypeScript |
-| Build Tool | Vite |
-| Routing | React Router v7 |
-| Drag & Drop | @dnd-kit/core |
-| Mock API | MirageJS |
-| Linting | ESLint |
+### Employee Directory (Left Panel)
 
-## 🚀 Getting Started
+- **Complete Employee List** — View all team members with their name, designation, and team
+- **Real-time Search** — Instantly filter employees by name, email, or role
+- **Team Filtering** — Filter view by specific departments (Engineering, Product, Sales, etc.)
+- **Quick Actions** — Copy email addresses to clipboard with one click
+
+<p align="center">
+  <img src="./docs/assets/employee-list.png" alt="Employee Directory" width="80%">
+</p>
+
+### Organization Structure (Right Panel)
+
+- **Hierarchical Visualization** — Tree-based chart showing complete reporting structure
+- **Team-aware Display** — Color-coded badges identify each employee's department
+- **Subordinate Count** — Visual indicators show team sizes at a glance
+- **Filtered View** — When filtering by team, the chart updates to show only relevant employees
+
+<p align="center">
+  <img src="./docs/assets/org-structure.png" alt="Organization Structure" width="80%">
+</p>
+
+### Drag & Drop Reassignment
+
+- **Intuitive Interactions** — Drag any employee card and drop onto a new manager
+- **Visual Feedback** — Clear drop zones and drag overlays guide the interaction
+- **Cycle Prevention** — Smart validation prevents invalid hierarchies (e.g., reporting to your own subordinate)
+- **Persistent Changes** — Manager updates are saved via API calls
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Framework** | React 19 |
+| **Language** | TypeScript 5.9 |
+| **Build Tool** | Vite 7 |
+| **Routing** | React Router v7 |
+| **Drag & Drop** | @dnd-kit/core |
+| **API Mocking** | MirageJS |
+| **Testing** | Vitest + React Testing Library |
+| **Linting** | ESLint |
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18 or higher
 - npm or yarn
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd happyfox-assignment
+git clone https://github.com/saikiran-48/organization-chart.git
+cd organization-chart
 
 # Install dependencies
 npm install
@@ -58,63 +79,72 @@ npm install
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
-### Available Scripts
+### Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint checks |
+| `npm run dev` | Start development server |
+| `npm run build` | Create production build |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run test suite |
+| `npm run test:coverage` | Run tests with coverage report |
 
-## 📁 Project Structure
+## Architecture
+
+### Project Structure
 
 ```
 src/
-├── assets/              # Static assets and icons
-├── components/          # React components
-│   ├── AppLayout/       # Main layout wrapper
-│   ├── EmployeeNodes/   # Tree node component for org chart
-│   ├── ErrorPage/       # 404 and error handling
-│   ├── OrgChart/        # Main organization chart component
+├── components/           # UI Components
+│   ├── AppLayout/        # Main layout wrapper
+│   ├── EmployeeNodes/    # Tree node for org chart
+│   ├── ErrorPage/        # Error boundaries & 404
+│   ├── OrgChart/         # Organization chart container
 │   └── SidebarContainer/
-│       ├── EmployeeList/   # Employee directory list
-│       ├── SearchBox/      # Search input component
-│       ├── SideBar/        # Navigation sidebar
-│       └── TeamFilter/     # Department filter dropdown
+│       ├── EmployeeList/ # Employee directory
+│       ├── SearchBox/    # Search input
+│       ├── SideBar/      # Navigation sidebar
+│       └── TeamFilter/   # Department filter
+│
 ├── hooks/
-│   └── useEmployees.ts  # Employee data management hook
+│   └── useEmployees.ts   # Employee data & state management
+│
 ├── pages/
-│   ├── EmployeeListPage.tsx   # Team members directory
-│   └── OrgChartPage.tsx       # Organization structure view
+│   ├── EmployeeListPage.tsx
+│   └── OrgChartPage.tsx
+│
 ├── server/
-│   ├── data.ts          # Mock employee data
-│   └── mirage.ts        # MirageJS API server config
-├── shared/              # Reusable UI components
-│   ├── Avatar/          # Employee avatar component
-│   └── TeamBadge/       # Team/department badge
+│   ├── data.ts           # Mock employee data
+│   └── mirage.ts         # MirageJS configuration
+│
+├── shared/               # Reusable components
+│   ├── Avatar/
+│   └── TeamBadge/
+│
 ├── types/
-│   └── employeeTypes.ts # TypeScript interfaces
+│   └── employeeTypes.ts  # TypeScript definitions
+│
 └── utils/
-    └── treeUtils.ts     # Tree building and manipulation
+    └── treeUtils.ts      # Tree algorithms
 ```
 
-## 🔌 API Endpoints
+### API Endpoints
 
-The app uses MirageJS to mock a REST API:
+The application uses MirageJS to simulate a REST API:
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/api/employees` | Fetch all employees |
-| `GET` | `/api/employees/:id` | Fetch single employee |
-| `POST` | `/api/employees` | Create new employee |
-| `PATCH` | `/api/employees/:id` | Update employee (e.g., manager) |
-| `DELETE` | `/api/employees/:id` | Delete employee |
-| `GET` | `/api/teams` | Fetch all teams |
+| GET | `/api/employees` | Fetch all employees |
+| GET | `/api/employees/:id` | Fetch single employee |
+| POST | `/api/employees` | Create new employee |
+| PATCH | `/api/employees/:id` | Update employee (manager reassignment) |
+| DELETE | `/api/employees/:id` | Delete employee |
+| GET | `/api/teams` | Fetch all teams |
 
-## 📊 Data Model
+### Data Model
 
 ```typescript
 interface Employee {
@@ -122,7 +152,7 @@ interface Employee {
   name: string;
   designation: string;
   team: Team;
-  managerId: string | null;  // null = CEO/top-level
+  managerId: string | null;  // null indicates top-level (CEO)
   email?: string;
   avatar?: string;
 }
@@ -136,52 +166,68 @@ type Team =
   | 'Finance';
 ```
 
-## 🎯 Key Implementation Details
+## Implementation Highlights
 
 ### Tree Building Algorithm
 
-The `buildEmployeeTree` function converts a flat employee list into a hierarchical tree structure in O(n) time:
+The org chart is built from a flat employee list using an O(n) algorithm:
 
-1. Creates a map for O(1) employee lookups
-2. Iterates through employees, linking children to parents
-3. Collects root nodes (employees with no manager)
+1. Create a lookup map for O(1) access by employee ID
+2. Single pass through employees to link children to parents
+3. Collect root nodes (employees where `managerId` is null)
 
-### Cycle Prevention
+This approach efficiently handles organizations of any size.
 
-Before reassigning a manager, the app checks for cycles:
-- An employee cannot report to themselves
-- An employee cannot report to their own subordinate
-- Validation happens both client-side and server-side
+### Cycle Detection
 
-### Drag and Drop
+Before allowing a manager reassignment, the system validates:
 
-Uses `@dnd-kit/core` for accessible drag-and-drop:
-- Pointer and keyboard sensor support
-- Visual drag overlay during moves
-- Drop target highlighting
+- An employee cannot be their own manager
+- An employee cannot report to someone in their own subordinate chain
+- Validation occurs both client-side (immediate feedback) and server-side (data integrity)
 
-## 🎨 Styling
+### Drag & Drop Implementation
 
-The project uses vanilla CSS with a component-scoped approach:
-- Each component has its own `.css` file
-- BEM-style naming convention
-- CSS custom properties for theming
-- Responsive design considerations
+Built with `@dnd-kit/core` for accessible, performant interactions:
 
-## 🧪 Future Improvements
+- Supports both pointer and keyboard input
+- Visual drag overlay provides clear feedback
+- Drop zones highlight valid targets
+- Smooth animations on state changes
 
-- [ ] Add unit tests with Vitest
-- [ ] Add E2E tests with Playwright
-- [ ] Implement dark mode
-- [ ] Add employee creation/editing forms
-- [ ] Export org chart as image/PDF
-- [ ] Add zoom/pan controls for large orgs
-- [ ] Real backend integration
+### Styling Approach
 
-## 📄 License
+- Component-scoped CSS files (no global style conflicts)
+- BEM naming convention for clarity
+- CSS custom properties for consistent theming
+- Responsive considerations for various screen sizes
 
-This project is private and intended for demonstration purposes.
+## Testing
+
+Run the test suite:
+
+```bash
+# Run all tests
+npm run test
+
+# Run with coverage
+npm run test:coverage
+
+# Run in watch mode
+npm run test -- --watch
+```
+
+## Browser Support
+
+Tested and working in:
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ---
 
-Built with ❤️ using React and TypeScript
+<p align="center">
+  Built with React and TypeScript
+</p>
