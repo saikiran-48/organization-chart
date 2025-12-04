@@ -3,8 +3,12 @@ import { AppLayout } from './components/AppLayout/AppLayout';
 import { EmployeeListPage } from './pages/EmployeeListPage';
 import { OrgChartPage } from './pages/OrgChartPage';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import { useGitHubPagesRedirect } from './hooks/useGitHubPagesRedirect';
 
 export default function AppRoutes() {
+  // Handle GitHub Pages SPA redirect
+  useGitHubPagesRedirect();
+
   return (
     <Routes>
       <Route path="/employee-list" element={<AppLayout><EmployeeListPage /></AppLayout>} />
